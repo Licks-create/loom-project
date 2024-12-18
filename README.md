@@ -29,7 +29,7 @@
 5. **Access the Application:**
    Open your web browser and visit:
    ```
-   http://localhost:5173/ or See what follow hosted link on your IDE terminal
+   http://localhost:5173/ or follow hosted link on your IDE terminal
    ```
 
 6. **Build for Production (Optional):**
