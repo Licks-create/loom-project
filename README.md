@@ -71,28 +71,13 @@ Icons like `AddCircleIcon` and `DocumentScannerIcon` provide intuitive user inte
 ### 5. **Responsive Design with Media Queries**
 Responsive design is achieved using Tailwind CSS media query utilities (e.g., `max-[600px]`). The `Disclaimer` component and `TransactionTable` dynamically adapt to smaller screen sizes.
 
-### 6. **Use of Vite**
-Vite was selected as the build tool due to its:
-- Faster development server with hot module replacement (HMR).
-- Optimized production build output.
 
-### 7. **Static Transaction Data**
+### 6. **Static Transaction Data**
 For simplicity, the transaction data is stored in a static JavaScript file (`transactionData.js`). This allows for quick testing and prototyping. Future enhancements can include:
 - Integrating an API to fetch dynamic data.
 - Using a database for persistent storage.
 
-### 8. **Error and Prop Handling**
-The project uses ESLint to enforce coding standards and detect unused variables. Additionally, PropTypes could be introduced in future iterations for type-checking component props.
 
-### Future Considerations
-- **Sorting and Filtering:**
-  Add UI controls and logic for sorting transactions by date, amount, or other criteria.
-- **Backend Integration:**
-  Connect the app to a backend API for dynamic transaction data.
-- **Testing:**
-  Implement unit and integration tests using Jest or React Testing Library.
-- **Accessibility:**
-  Improve ARIA compliance for screen readers.
 
 ---
 
