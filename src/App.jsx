@@ -30,15 +30,15 @@ function App() {
           <div className=" bg-white rounded-lg shadow-sm p-6">
             <div className=" flex justify-between items-center mb-6">
               <div className="flex items-center space-x-4">
-                <button className=" px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
-                  <ArrowDropDownIcon /> Add Filter
+                <button className=" md:px-3 md:py-2 border border-gray-300 rounded-md text-xs md:text-sm font-medium text-gray-700 hover:bg-gray-50 flex p-2">
+                  <ArrowDropDownIcon /> <span>Add Filter</span>
                 </button>
                 <span className=" text-sm text-gray-500">
                   No filters applied
                 </span>
               </div>
-              <button className=" px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
-                <FileDownloadIcon /> Export All
+              <button className=" px-3 py-2 border border-gray-300 rounded-md text-xs md:text-sm font-medium text-gray-700 hover:bg-gray-50 flex">
+                <FileDownloadIcon /> <span>Export All</span>
               </button>
             </div>
             <TransationTable transationData={TransationData} />
