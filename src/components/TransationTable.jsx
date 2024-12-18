@@ -9,15 +9,15 @@ const TransationTable = ({ transationData }) => {
       <table className=" w-full">
         <thead>
           <tr className=" text-left text-xs font-semibold text-gray-500 uppercase">
-            <th className=" pb-2 pr-6">Date</th>
-            <th className=" pb-2 pr-6">To / From</th>
-            <th className=" pb-2 pr-6">Amount</th>
-            <th className=" pb-2 pr-6">Account</th>
-            <th className=" pb-2 pr-6">
+            <th className=" pb-2 pr-6 text-center">Date</th>
+            <th className=" pb-2 pr-6 text-center">To / From</th>
+            <th className=" pb-2 pr-6 text-center">Amount</th>
+            <th className=" pb-2 pr-6 text-center">Account</th>
+            <th className=" pb-2 pr-6 text-center">
               <MonetizationOnIcon />
               Payment Method
             </th>
-            <th className=" pb-2 ">Attachment</th>
+            <th className=" pb-2 text-center">Attachment</th>
           </tr>
         </thead>
         <tbody>

@@ -32,7 +32,7 @@ const TableRow = ({
           </div>
         ) : (
           (preDate = date) && (
-            <div className=" text-xs text  absolute top-[40%]">
+            <div className="text-center text-xs text  absolute top-[40%]">
               {new Date(date)
                 .toLocaleString("default", {
                   month: "long",
@@ -44,21 +44,21 @@ const TableRow = ({
           )
         )}
       </td>
-      <td className=" text-xs font-medium text-gray-500">{company}</td>
+      <td className=" text-xs text-center font-medium text-gray-500">
+        {company}
+      </td>
       <td
-        className={` text-gray-500 text-sm py-4 ${
+        className={`text-center text-gray-500 text-sm py-4 ${
           Number(amount) > 0 ? "text-[#188554]" : ""
         }  font-bold`}
       >
         {amount}
       </td>
-      <td className=" text-gray-500 text-sm py-4 ">{account}</td>
-      <td className=" text-gray-500 text-sm py-4 ">{paymentMethod}</td>
-      <td
-        className={` text-gray-500 text-sm py-4 ${
-          attachment ? " " : ""
-        } cursor-pointer`}
-      >
+      <td className=" text-gray-500 text-sm py-4 text-center">{account}</td>
+      <td className=" text-gray-500 text-sm py-4 text-center ">
+        {paymentMethod}
+      </td>
+      <td className={`text-center text-gray-500 text-sm py-4 cursor-pointer`}>
         {attachment ? <DocumentScannerIcon /> : <AddCircleIcon />}
       </td>
     </tr>
