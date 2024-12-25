@@ -10,9 +10,10 @@ const TransationTable = ({ transationData }) => {
         <thead>
           <tr className=" text-left text-xs font-semibold text-gray-500 uppercase">
             <th className=" pb-2 pr-6 text-center">Date</th>
-            <th className=" pb-2 pr-6 text-center">To / From</th>
+            <th className=" pb-2 pr-6 text-center">To </th>
+            <th className=" pb-2 pr-6 text-center">From </th>
             <th className=" pb-2 pr-6 text-center">Amount</th>
-            <th className=" pb-2 pr-6 text-center">Account</th>
+            <th className=" pb-2 pr-6 text-center">currency</th>
             <th className=" pb-2 pr-6 text-center">
               <MonetizationOnIcon />
               Payment Method

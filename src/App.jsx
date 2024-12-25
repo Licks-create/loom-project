@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -8,14 +8,35 @@ import { TransationData } from "./transationData";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import Discalimer from "./components/Discalimer";
+import Hero from "./components/Hero";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [pages, setPages] = useState(0);
   const [display, setDisplay] = useState(false);
-
+  const [nextPage, setNextPage] = useState(1);
+  const [transationsData, setTransationData] = useState(TransationData);
+  console.log({nextPage})
+  useEffect(() => {
+    try {
+      async function getLists(nextPage) {
+        const data = await fetch(
+          "https://interview-mercury.free.beeceptor.com/transaction?page=" +nextPage
+        );
+        let jsonData = await data.json();
+        console.log({ jsonData });
+        if (jsonData.status === "success") {
+          setPages(Number(jsonData.data.pagination.total_pages));
+          setTransationData(jsonData.data.transactions)
+        }
+      }
+      getLists(nextPage);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, [nextPage]);
   return (
     <>
-      <div className={  ` hidden  ${display ? "hidden" : "max-[600px]:block"}`}>
+      <div className={` hidden  ${display ? "hidden" : "max-[600px]:block"}`}>
         <Discalimer setDisplay={setDisplay} />
       </div>
       <div
@@ -24,9 +45,11 @@ function App() {
         } min-h-screen bg-gray-100 p-8 `}
       >
         <div className=" max-w-7xl mx-auto">
-          <h1 className=" text-2xl font-semibold text-gray-800 mb-8">
-            Transations
-          </h1>
+          <Hero
+            setPageNo={setNextPage}
+            totalPages={pages}
+            currentPage={nextPage}
+          />
           <div className=" bg-white rounded-lg shadow-sm p-6">
             <div className=" flex justify-between items-center mb-6">
               <div className="flex items-center space-x-4">
@@ -41,7 +64,7 @@ function App() {
                 <FileDownloadIcon /> <span>Export All</span>
               </button>
             </div>
-            <TransationTable transationData={TransationData} />
+            <TransationTable transationData={transationsData} />
           </div>
         </div>
       </div>
