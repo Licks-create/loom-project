@@ -8,9 +8,9 @@ const Hero = ({ setPageNo, totalPages, currentPage, error }) => {
       <h1 className=" text-2xl font-semibold text-gray-800 mb-8">
         {error ? "Error 429: Too Many request!" : "Transations"}
       </h1>
-      <div className=" flex gap-2">
+      <div className=" flex gap-2 overflow-x-auto">
         {totalPages === 0 ? (
-          <div className="shimmer w-[320px] h-[40px] rounded-2xl" />
+          <div className="shimmer w-[320px] h-[40px] rounded-2xl " />
         ) : (
           new Array(totalPages).fill("").map((_, index) => (
             <div

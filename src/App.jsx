@@ -11,7 +11,7 @@ import Discalimer from "./components/Discalimer";
 import Hero from "./components/Hero";
 
 function App() {
-  const [pages, setPages] = useState(0);
+  const [pages, setPages] = useState(10);
   const [display, setDisplay] = useState(false);
   const [error, setError] = useState(false);
   const [nextPage, setNextPage] = useState(1);
@@ -27,6 +27,7 @@ function App() {
         let jsonData = await data.json();
         console.log({ jsonData });
         if (jsonData.status === "success") {
+          setError(false)
           setPages(Number(jsonData.data.pagination.total_pages));
           setTransationData(jsonData.data.transactions);
         }
