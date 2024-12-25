@@ -11,7 +11,7 @@ import Discalimer from "./components/Discalimer";
 import Hero from "./components/Hero";
 
 function App() {
-  const [pages, setPages] = useState(10);
+  const [pages, setPages] = useState(0);
   const [display, setDisplay] = useState(false);
   const [error, setError] = useState(false);
   const [nextPage, setNextPage] = useState(1);
