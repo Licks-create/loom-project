@@ -21,18 +21,17 @@ function App() {
     async function getLists(nextPage) {
       try {
         const data = await fetch(
-          "https://interview-mercury.free.beeceptor.com/transaction?page=" +
-            nextPage
+          `https://interview-mercury.free.beeceptor.com/transaction?page=${nextPage}`
         );
         let jsonData = await data.json();
         console.log({ jsonData });
         if (jsonData.status === "success") {
-          setError(false)
+          setError(false);
           setPages(Number(jsonData.data.pagination.total_pages));
           setTransationData(jsonData.data.transactions);
         }
       } catch (error) {
-        setError(true)
+        setError(true);
         console.log({ error });
       }
     }
