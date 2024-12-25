@@ -2,11 +2,11 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-const Hero = ({ setPageNo, totalPages, currentPage }) => {
+const Hero = ({ setPageNo, totalPages, currentPage, error }) => {
   return (
     <div className=" flex justify-between mb-3">
       <h1 className=" text-2xl font-semibold text-gray-800 mb-8">
-        Transations
+        {error ? "Error 429: Too Many request!" : "Transations"}
       </h1>
       <div className=" flex gap-2">
         {totalPages === 0 ? (

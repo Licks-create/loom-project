@@ -13,26 +13,29 @@ import Hero from "./components/Hero";
 function App() {
   const [pages, setPages] = useState(0);
   const [display, setDisplay] = useState(false);
+  const [error, setError] = useState(false);
   const [nextPage, setNextPage] = useState(1);
   const [transationsData, setTransationData] = useState(TransationData);
-  console.log({nextPage})
+  console.log({ nextPage });
   useEffect(() => {
-    try {
-      async function getLists(nextPage) {
+    async function getLists(nextPage) {
+      try {
         const data = await fetch(
-          "https://interview-mercury.free.beeceptor.com/transaction?page=" +nextPage
+          "https://interview-mercury.free.beeceptor.com/transaction?page=" +
+            nextPage
         );
         let jsonData = await data.json();
         console.log({ jsonData });
         if (jsonData.status === "success") {
           setPages(Number(jsonData.data.pagination.total_pages));
-          setTransationData(jsonData.data.transactions)
+          setTransationData(jsonData.data.transactions);
         }
+      } catch (error) {
+        setError(true)
+        console.log({ error });
       }
-      getLists(nextPage);
-    } catch (error) {
-      console.log(error.message);
     }
+    getLists(nextPage);
   }, [nextPage]);
   return (
     <>
@@ -49,6 +52,7 @@ function App() {
             setPageNo={setNextPage}
             totalPages={pages}
             currentPage={nextPage}
+            error={error}
           />
           <div className=" bg-white rounded-lg shadow-sm p-6">
             <div className=" flex justify-between items-center mb-6">
